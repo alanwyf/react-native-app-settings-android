@@ -1,18 +1,21 @@
 {
-  "name": "react-native-open-app-settings-android",
-  "version": "1.0.0",
-  "description": "can open app setting in android",
-  "main": "AndroidOpenAppSettings.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "Coderge"
   },
-  "keywords": [
-    "react-native-open-app-settings-android"
-  ],
+  "deprecated": false,
+  "description": "can open app setting in android",
   "devDependencies": {
     "react": ">=15.0.0",
     "react-native": ">=0.24.0"
   },
-  "author": "Coderge",
-  "license": "MIT"
+  "keywords": [
+    "react-native-app-settings-android"
+  ],
+  "license": "MIT",
+  "main": "AndroidAppSettings.js",
+  "name": "react-native-app-settings-android",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }

@@ -9,10 +9,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReactApplicationContext;
 
-public class RNOpenAppSettingsModule extends ReactContextBaseJavaModule {
+public class RNAppSettingsModule extends ReactContextBaseJavaModule {
     private final ReactApplicationContext reactContext;
 
-    public RNOpenAppSettingsModule(ReactApplicationContext reactContext) {
+    public RNAppSettingsModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }

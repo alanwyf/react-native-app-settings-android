@@ -11,15 +11,15 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class RNOpenAppSettingsPackage implements ReactPackage {
+public class RNAppSettingsPackage implements ReactPackage {
 
-    public RNOpenAppSettingsPackage() {
+    public RNAppSettingsPackage() {
     }
 
     @Override
         public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
             return Arrays.<NativeModule>asList(
-                new RNOpenAppSettingsModule(reactContext)
+                new RNAppSettingsModule(reactContext)
             );
         }
 
