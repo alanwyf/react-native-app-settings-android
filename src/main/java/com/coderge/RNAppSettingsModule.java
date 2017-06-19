@@ -39,6 +39,10 @@ public class RNAppSettingsModule extends ReactContextBaseJavaModule {
     public void openGPS() {
         final Intent i = new Intent();
         i.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         this.reactContext.startActivity(i);
     }
 }
