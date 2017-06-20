@@ -12,6 +12,9 @@ const AndroidAppSettings = {
   openGPS: function (): void {
     RCTAppSettings.openGPS();
   },
+  fineGPS: function (): boolean {
+    return RCTAppSettings.fineGPS;
+  },
 };
 
 module.exports = AndroidAppSettings;
