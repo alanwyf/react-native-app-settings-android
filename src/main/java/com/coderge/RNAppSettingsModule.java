@@ -11,10 +11,13 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
+import android.os.Build;
+import android.text.TextUtils;
+
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.Callback;
 
 public class RNAppSettingsModule extends ReactContextBaseJavaModule {
     private final ReactApplicationContext reactContext;
@@ -53,23 +56,9 @@ public class RNAppSettingsModule extends ReactContextBaseJavaModule {
         this.reactContext.startActivity(i);
     }
 
-    @Override
-    public @Nullable Map<String, Object> getConstants() {
-        HashMap<String, Object> constants = new HashMap<String, Object>();
-
-        PackageManager packageManager = this.reactContext.getPackageManager();
-        String packageName = this.reactContext.getPackageName();
-
-        constants.put("fineGPS", this.fineGPS());
-        return constants;
-    }
-
-    private boolean fineGPS() {
-        LocationManager locationManager = (LocationManager) this.reactContext.getSystemService(ReactApplicationContext.LOCATION_SERVICE);
-        // 通过GPS卫星定位，定位级别可以精确到街（通过24颗卫星定位，在室外和空旷的地方定位准确、速度快）
-        boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        // 通过WLAN或移动网络(3G/2G)确定的位置（也称作AGPS，辅助GPS定位。主要用于在室内或遮盖物（建筑群或茂密的深林等）密集的地方定位）
-        boolean network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        return gps || network;
+    @ReactMethod
+    public void isLocationEnabled(Callback callback) {
+        String locationProviders = Settings.Secure.getString(this.reactContext.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+        callback.invoke(!TextUtils.isEmpty(locationProviders));
     }
 }

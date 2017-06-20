@@ -12,9 +12,9 @@ const AndroidAppSettings = {
   openGPS: function (): void {
     RCTAppSettings.openGPS();
   },
-  fineGPS: function (): boolean {
-    return RCTAppSettings.fineGPS;
-  },
+  isLocationEnabled: function (cb): void {
+    RCTAppSettings.isLocationEnabled(enabled => cb(enabled));
+  }
 };
 
 module.exports = AndroidAppSettings;
