@@ -61,4 +61,12 @@ public class RNAppSettingsModule extends ReactContextBaseJavaModule {
         String locationProviders = Settings.Secure.getString(this.reactContext.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
         callback.invoke(!TextUtils.isEmpty(locationProviders));
     }
+
+    @ReactMethod
+    public void isCoarseLocation(Callback callback) {
+        LocationManager lm = (LocationManager)this.reactContext.getSystemService(ReactApplicationContext.LOCATION_SERVICE);
+        boolean gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        callback.invoke(gps_enabled && network_enabled);
+    }
 }
