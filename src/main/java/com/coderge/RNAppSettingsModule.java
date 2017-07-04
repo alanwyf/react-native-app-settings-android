@@ -34,7 +34,7 @@ public class RNAppSettingsModule extends ReactContextBaseJavaModule {
 
 
     @ReactMethod
-    public void open() {
+    public void openAuthoritySetting() {
         final Intent i = new Intent();
         i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         i.addCategory(Intent.CATEGORY_DEFAULT);
@@ -46,7 +46,7 @@ public class RNAppSettingsModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void openGPS() {
+    public void openGPSSetting() {
         final Intent i = new Intent();
         i.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         i.addCategory(Intent.CATEGORY_DEFAULT);
